@@ -1,0 +1,29 @@
+candidate = 0 
+
+def test():
+    for c in range(3):  
+        for b in range(6):  #without leftover
+            for a in range(9): 
+                if (6*a + 9*b +20*c) == candidate:
+                    return str(candidate) + " works. Buy " + str(a) + " 6-piece boxes " + str(b) + " 9-piece and " + str(c) + " 20-piece boxes."
+    return str(candidate) + " doesn't work."
+
+for i in range(50):
+    print test()
+    candidate += 1 
+    
+#Program that figures out if a given number of chicken McNuggets can be bought without leftovers given 
+#6, 9, and 20 piece boxes. This was a response to MIT 6.00 problem set 2 (3rd of the course). I'm pretty proud of this code,
+#figured it out all on my own. At one point it was 50+ lines, needing much more, with 3 functions and a program body that 
+#looped back into one of the functions. Took 4-5 hours, but the best spent time was just thinking it through, finally realizing
+#how I could do the three "for" loops nested inside each other. Now seeing it as 11 lines of code (not including the spaces)
+#it just strikes me as a thing of beauty.
+
+#Reduced the range numbers to save computing time once I realized that 43 was the most that couldn't be bought without
+#leftovers.
+#At one point had candidate defined as a global variable, then realized I didn't need to change it in the test function. 
+#Saved me two lines of code!
+
+#Assuming that the larger boxes are the best deal, I could determine how to get the answer with the fewest boxes by inverting
+#the "a" and "c" loops.
+#But right now I'm just happy.
